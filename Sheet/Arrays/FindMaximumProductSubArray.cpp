@@ -1,41 +1,28 @@
+//Time COmplexcity : O(n)
+//space complexcity : O(1)
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
 
-// long long int maxProduct(int arr[],int n){
-//      long long int ans = INT_MIN;
-//     long long int pref = 1;
-//     long long int suff = 1;
-//     for(int i=0;i<n;i++){
-//         if(pref==0) pref = 1;
-//         if(suff==0) suff = 1;
-//         pref = pref *arr[i];
-//         suff = suff* arr[n-i-1];
-//         ans=max(ans,max(pref,suff));
-//     }
-//     return ans
-// }
 int main() {
-    int arr[5];
+    int arr[6];
     int n = sizeof(arr)/sizeof(int);
     cout<<"enter elemtss"<<endl;
     for(int i=0;i<n;i++){
         cin>>arr[i];
-        
-    int ans = 0;
-    int pref = 1;
-    int suff = 1;
+    }
+    long long int ans = 0;
+    long long int pref = 1;
+    long long int suff = 1;
     for(int i=0;i<n;i++){
-        if(pref==0) pref = 1;
-        if(suff==0) suff = 1;
+        if(pref==0) pref = 1; //reset 
+        if(suff==0) suff = 1; //reset 
         pref = pref *arr[i];
         suff = suff* arr[n-i-1];
         ans=max(ans,max(pref,suff));
     }
     cout<< ans ;
-    }
 }
-
 
 /////////////////////////////  DRY RUN  //////////////////////////////////////////////////
 // arr = [6 -3 -10 0 2 ] 
@@ -64,7 +51,7 @@ int main() {
 
 // i=4
 // pref = 1*2 = 2
-// suff = -10 * arr[6-1-4] = -10*arr[1] = -10 * - 3  = 30 
+// suff = -10 * arr[6-1-4] = -10*arr[1] = -10 * - 3  = 30 1
 // ans = max(int_min , max(pre,suff)) = 180
 
 

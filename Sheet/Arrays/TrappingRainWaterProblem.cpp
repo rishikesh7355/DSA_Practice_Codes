@@ -1,5 +1,6 @@
 // Time complexity : O(n)
 // space complexity : O(1)
+//Two pointer approach
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
@@ -71,7 +72,7 @@ int main() {
 // 		lmax=9
 // 		l++ == l will become 4 i.e l>r and there are no array elemets stop 
 
-// ///////////////////////another dry run ///////////////////////////////
+///////////////////////another dry run ///////////////////////////////
 
 // arr2 = [6 9 9]
 //         0 1 2

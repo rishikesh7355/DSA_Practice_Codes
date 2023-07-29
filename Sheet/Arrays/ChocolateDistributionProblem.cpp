@@ -5,7 +5,19 @@
 #include <iostream>
 using namespace std;
 
-long long findMinDiff(long long a,long long n,long long m){
+long long findMinDiff(vector<long long> a,long long n,long long m){
+    //wihout condition 1 and 2 passing in gfg but we should know the edge cases
+    // condition 1 if there are no chocolates or number
+    // of students is 0
+    if (m == 0 || n == 0)
+        return 0;
+    sort(a.begin(),a.end());
+    // consition 2 Number of students cannot be more than
+    // number of packets
+    if (m > n ){
+        return -1;
+    }
+ 
     int min_diff = INT_MAX;
     for(long long i=0;i+m-1<n;i++){
         long long diff = a[i+m-1]-a[i];
@@ -18,17 +30,22 @@ long long findMinDiff(long long a,long long n,long long m){
 int main() {
     vector<long long>a;
     long long n;//chocolates
+    cout<<"enter value of n "<<endl;
     cin>>n;
     long long m; //students
+    cout<<"enter total number of studens m"<<endl;
     cin>>m;
-    n = sizeof(a)/sizeof(int);
-    cout<<"enter number of chocolates "<<endl;
+    // n = sizeof(a)/sizeof(int);
+    cout<<"enter elemets of chocolates arr"<<endl;
+    long long x;
     for(long long i=0;i<n;i++){
-        a.push_back(a[i]);
+        cin>>x;
+        a.push_back(x);
     }
     
-    int res = findMinDiff(a,n,m);
-    cout<<res<<endl;
+    // int res = findMinDiff(a,n,m);
+    // cout<<res<<endl;
+    cout<<findMinDiff(a,n,m)<<endl;;
     
 }
 
@@ -40,6 +57,7 @@ int main() {
 // sort = { 1 3 4 7 9 9 12 56 }
 //          0 1 2 3 4 5  6  7
 // int min_diff = INT_MAX;
+//looping till i+m-1 < n is main thing here 
 // for(int i=0;i+m-1<n;i++)
 // i=0 i+m-1 <n 0+5-1<8 true
 //  another variable to store actual  diff 
